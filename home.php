@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once __DIR__ . '/_/_header.php';
 require_once __DIR__ . '/private/x.php';
 
 // Use null-coalescing to avoid "Undefined array key" warnings when session key
@@ -11,6 +10,8 @@ if (!$user) {
     header("Location: /login?message=User not found, please login first");
     exit;
 }
+
+require_once __DIR__ . '/_/_header.php';
 
 $message = $_GET['message'] ?? '';
 if($message):
