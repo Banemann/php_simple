@@ -13,19 +13,28 @@ if (!$user) {
 require_once __DIR__ . "/_/_header.php";
 ?>
 
-<form action="api/api-create-post" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
-    <h1>Create Post</h1>
+<main class="create-post-page">
+    <form action="api/api-create-post" method="POST" enctype="multipart/form-data" class="create-post-form-card">
+        <div class="form-header">
+            <h1>Create a New Post</h1>
+            <p>Share what's on your mind.</p>
+        </div>
 
-    <label>
-        Message
-        <textarea name="post_message" placeholder="What's happening?" rows="4"></textarea>
-    </label>
-    <label>
-        Image (optional)
-        <input name="post_image" type="file" accept="image/*" />
-    </label>
+        <label>
+            <span>Message</span>
+            <textarea name="post_message" placeholder="What's happening?" rows="5" required></textarea>
+        </label>
+        
+        <label>
+            <span>Image (optional)</span>
+            <input name="post_image" type="file" accept="image/*" />
+        </label>
 
-    <button type="submit">Create Post</button>
-</form>
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Post</button>
+            <a href="/" class="btn-secondary">Cancel</a>
+        </div>
+    </form>
+</main>
 
 <?php require_once __DIR__."/_/_footer.php"; ?>
