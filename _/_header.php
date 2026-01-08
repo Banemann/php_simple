@@ -20,5 +20,4 @@
         <a href="signup">Signup</a>
         <a href="login">Login</a>
     <?php endif; ?>
-    <a href="create-post">Create Post</a>
 </nav>

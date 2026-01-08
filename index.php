@@ -24,6 +24,14 @@ try {
 <main>
     <h1>All Posts</h1>
 
+    <?php if (isset($_SESSION['user'])): ?>
+    <section class="create-post-section">
+        <h2>Create a Post</h2>
+        <a href="/create-post">
+            <button class="create-post-btn">Create New Post</button>
+        </a>
+    </section>
+    <?php endif; ?>
     
     <div class="posts-container">
         
