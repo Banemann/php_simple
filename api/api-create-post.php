@@ -3,6 +3,7 @@ session_start();
 try {
     require_once __DIR__ . "/../private/x.php";
     require_once __DIR__ . "/../private/db.php";
+    require_once __DIR__ . "/../controllers/PostController.php";
 
     // Ensure user is logged in
     $user = $_SESSION['user'] ?? null;
@@ -20,14 +21,9 @@ try {
     // Handle optional image upload via helper which moves file and returns web path or null
     $imagePath = _validateImageUpload('post_image', 2 * 1024 * 1024);
 
-    // Insert into DB
-    $sql = "INSERT INTO posts (post_pk, post_message, post_image_path, post_user_fk) VALUES (:post_pk, :post_message, :post_image_path, :post_user_fk)";
-    $stmt = $_db->prepare($sql);
-    $stmt->bindValue(':post_pk', $postPk);
-    $stmt->bindValue(':post_message', $message);
-    $stmt->bindValue(':post_image_path', $imagePath ?? '');
-    $stmt->bindValue(':post_user_fk', $user['user_pk']);
-    $stmt->execute();
+    // Create via controller/model (MVC slice)
+    $postController = new PostController($_db);
+    $postController->createPost($postPk, $message, $imagePath, $user['user_pk']);
 
     // Success: redirect to home with success message
     header("Location: /?message=Post created successfully");
