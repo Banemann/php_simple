@@ -1,7 +1,6 @@
 <?php
 
 try {
-    
     require_once __DIR__ . "/../private/db.php";
     
     session_start();
@@ -14,7 +13,7 @@ try {
 
     if (!isset($_POST["post_pk"])) {
         http_response_code(400);
-        header("Location: /home?message=Error: Missing post id");
+        header("Location: /?message=Error: Missing post id");
         exit;
     }
 
@@ -28,16 +27,17 @@ try {
     $stmt->bindValue(":user_fk", $user_id);
     $stmt->execute();
 
-    if ($stmt->rowCount() == 0) {
+    if ($stmt->rowCount() > 0) {
         http_response_code(200);
-        header("Location: /posts?message=Delete failed");
+        header("Location: /?message=Post deleted successfully");
     } else {
         http_response_code(403);
-        header("Location: /posts?message=post_deleted");
+        header("Location: /?message=Failed to delete post");
     }
     exit;
 
 } catch (Exception $e) {
     http_response_code(500);
-    echo "error";
+    header("Location: /?message=Error: " . urlencode($e->getMessage()));
+    exit;
 }

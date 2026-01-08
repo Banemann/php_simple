@@ -23,9 +23,9 @@
 
     <?php if ($current_user_id == $post['post_user_fk']): ?>
 
-        <form action="/api/api-delete-post.php" method="POST">
+        <form action="/api/api-delete-post" method="POST" style="margin-top: 1rem;">
             <input type="hidden" name="post_pk" value="<?php echo $post['post_pk']; ?>">
-            <button type="submit">Delete</button>
+            <button type="submit" style="background-color: #e74c3c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
         </form>
 
     <?php endif; ?>

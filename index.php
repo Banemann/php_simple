@@ -18,11 +18,23 @@ try {
     echo "<div>Error: Could not fetch posts.</div>";
     $posts = [];
 }
-
 ?>
+
+<?php 
+$message = $_GET['message'] ?? '';
+if($message): 
+?>
+    <div id="toast">
+        <div class="toast-ok">
+            <?php echo htmlspecialchars($message) ?>
+        </div>
+    </div>
+<?php endif; ?>
 
 <main>
     <h1>All Posts</h1>
+
+    
 
     <?php if (isset($_SESSION['user'])): ?>
     <section class="create-post-section">
