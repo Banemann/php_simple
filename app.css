@@ -8,7 +8,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background:  #574cec;
+    background:  #667eea;
     padding: 1rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     gap: 2rem;
@@ -62,7 +62,7 @@ main > h1 {
 }
 
 .create-post-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #667eea;
     color: white;
     border: none;
     padding: 0.75rem 2rem;
@@ -256,7 +256,7 @@ main > h1 {
 }
 
 .profile-form button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #667eea ;
     color: white;
     border: none;
     padding: 0.85rem 1rem;
