@@ -4,16 +4,13 @@ require_once __DIR__."/_/_header.php";
 require_once __DIR__."/private/x.php";
 
 require_once __DIR__ . "/private/db.php";
+require_once __DIR__ . "/controllers/PostController.php";
 
 $current_user_id = $_SESSION['user']['user_pk'] ?? null;
 
 try {
-
-    $sql = "SELECT posts.*, users.user_username FROM posts INNER JOIN users ON posts.post_user_fk = users.user_pk";
-    $stmt = $_db->prepare($sql);
-    $stmt->execute();
-    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    $postController = new PostController($_db);
+    $posts = $postController->listPosts();
 } catch (Exception $e) {
     echo "<div>Error: Could not fetch posts.</div>";
     $posts = [];
@@ -38,33 +35,45 @@ $error = $_GET['error'] ?? '';
     <?php endif; ?>
 </div>
 
-<main>
-    <h1>All Posts</h1>
+<main class="feed-layout">
+    <aside class="feed-left">
+        <?php if (isset($_SESSION['user'])): ?>
+            <div class="side-card">
+                <h2>Actions</h2>
+                <a class="side-button" href="/create-post">Create a Post</a>
+            </div>
+        <?php else: ?>
+            <div class="side-card">
+                <h2>Welcome</h2>
+                <p>Login to share your thoughts.</p>
+                <a class="side-button" href="/login">Login</a>
+            </div>
+        <?php endif; ?>
+    </aside>
 
-    <?php if (isset($_SESSION['user'])): ?>
-    <section class="create-post-section">
-        <h2>Create a Post</h2>
-        <a href="/create-post">
-            <button class="create-post-btn">Create New Post</button>
-        </a>
+    <section class="feed-center">
+        <h1>All Posts</h1>
+        <div class="posts-container">
+            <?php if (empty($posts)): ?>
+                <p>No posts found.</p>
+            <?php else: ?>
+                <?php foreach ($posts as $post): ?>
+                    <?php require __DIR__ . "/_/_post.php"; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
     </section>
-    <?php endif; ?>
-    
-    <div class="posts-container">
-        
-        <?php
-        if (empty($posts)):
-        ?>
-            <p>No posts found.</p>
-        <?php
-        else:
-            foreach ($posts as $post):
-                require __DIR__ . "/_/_post.php";
-            endforeach;
-        endif;
-        ?>
 
-    </div>
+    <aside class="feed-right">
+        <div class="side-card">
+            <h2>Recommendations</h2>
+            <ul class="reco-list">
+                <li>#php</li>
+                <li>#webdev</li>
+                <li>#design</li>
+            </ul>
+        </div>
+    </aside>
 </main>
 
 <?php
