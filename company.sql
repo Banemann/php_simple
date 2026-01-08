@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mariadb
--- Generation Time: Jan 08, 2026 at 09:31 PM
+-- Generation Time: Jan 08, 2026 at 09:45 PM
 -- Server version: 10.6.20-MariaDB-ubu2004
 -- PHP Version: 8.2.27
 
@@ -62,16 +62,18 @@ CREATE TABLE `posts` (
   `post_pk` char(50) NOT NULL,
   `post_message` varchar(200) NOT NULL,
   `post_image_path` varchar(100) NOT NULL,
-  `post_user_fk` char(50) NOT NULL
+  `post_user_fk` char(50) NOT NULL,
+  `post_created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_pk`, `post_message`, `post_image_path`, `post_user_fk`) VALUES
-('1', 'Post one', 'https://picsum.photos/250/250', '1'),
-('2aef6e66a77b1a0d98bf63c6e875eab5', 'Hello world', '', '1');
+INSERT INTO `posts` (`post_pk`, `post_message`, `post_image_path`, `post_user_fk`, `post_created_at`) VALUES
+('1', 'Post one', 'https://picsum.photos/250/250', '1', '2026-01-08 21:38:17'),
+('3766716425a2636bfabae63a15f9103a', 'Hello there', '', '1', '2026-01-08 21:42:33'),
+('e7e8d0755d476831585d548763b7e905', 'Yoooo', '', '1', '2026-01-08 21:42:23');
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,8 @@ ALTER TABLE `likes`
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`post_pk`);
+  ADD PRIMARY KEY (`post_pk`),
+  ADD KEY `idx_posts_created_at` (`post_created_at`);
 
 --
 -- Indexes for table `users`
