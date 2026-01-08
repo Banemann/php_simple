@@ -12,7 +12,13 @@
 <div id="toast"></div>
 
 <nav>
-    <a href="signup">Signup</a>
-    <a href="login">Login</a>
+    <a href="/">Home</a>
+    <?php if (isset($_SESSION['user'])): ?>
+        <a href="profile">Profile</a>
+        <a href="logout">Logout</a>
+    <?php else: ?>
+        <a href="signup">Signup</a>
+        <a href="login">Login</a>
+    <?php endif; ?>
     <a href="create-post">Create Post</a>
 </nav>
