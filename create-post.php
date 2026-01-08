@@ -13,7 +13,7 @@ if (!$user) {
 require_once __DIR__ . "/_/_header.php";
 ?>
 
-<form action="api/api-create-post" mix-post enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+<form action="api/api-create-post" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
     <h1>Create Post</h1>
 
     <label>
@@ -25,13 +25,7 @@ require_once __DIR__ . "/_/_header.php";
         <input name="post_image" type="file" accept="image/*" />
     </label>
 
-    <button>Create Post</button>
+    <button type="submit">Create Post</button>
 </form>
-
-<div id="message"></div>
-
-
-
-<script src="/js/mixhtml.js"></script>
 
 <?php require_once __DIR__."/_/_footer.php"; ?>

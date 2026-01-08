@@ -8,8 +8,7 @@ try {
     $user = $_SESSION['user'] ?? null;
     if (!$user) {
         http_response_code(401);
-        echo json_encode(["error" => true, "message" => "Not authenticated"]);
-        exit;
+        throw new Exception("Not authenticated", 401);
     }
 
     // Validate message (centralized validator)
@@ -30,19 +29,17 @@ try {
     $stmt->bindValue(':post_user_fk', $user['user_pk']);
     $stmt->execute();
 
-    // Redirect back to home or post list
-    $message = "Post created successfully";
+    // Success: redirect to home with success message
+    header("Location: /?message=Post created successfully");
     exit;
+
 } catch (Exception $e) {
     $respCode = is_numeric($e->getCode()) ? (int)$e->getCode() : 500;
     if ($respCode < 100 || $respCode > 599) $respCode = 500;
     http_response_code($respCode);
-    header('Content-Type: application/json; charset=utf-8');
-    $toast_error = require_once __DIR__."/../___/___toast_error.php"; 
-return "<browser mix-update='#toast'>$toast_error </browser>";
-echo "<browser mix-update='#message'>".$e->getMessage()."</browser>";
+    
+    // Redirect back with error message
+    header("Location: /?error=" . urlencode($e->getMessage()));
+    exit;
 }
-
-$toast_ok = require_once __DIR__."/../___/___toast_ok.php"; 
-return "<browser mix-update='#toast'>$toast_ok </browser>";
-
+?>

@@ -22,19 +22,24 @@ try {
 
 <?php 
 $message = $_GET['message'] ?? '';
-if($message): 
+$error = $_GET['error'] ?? '';
 ?>
-    <div id="toast">
+
+<div id="toast">
+    <?php if ($message): ?>
         <div class="toast-ok">
             <?php _($message) ?>
         </div>
-    </div>
-<?php endif; ?>
+    <?php endif; ?>
+    <?php if ($error): ?>
+        <div class="toast-error">
+            <?php _($error) ?>
+        </div>
+    <?php endif; ?>
+</div>
 
 <main>
     <h1>All Posts</h1>
-
-    
 
     <?php if (isset($_SESSION['user'])): ?>
     <section class="create-post-section">
