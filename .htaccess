@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Hvis filen findes som .php, omskriv URL uden filendelse til .php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# # Hvis det ikke er en statisk fil, send til routes.php
+# RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf)$
+# RewriteRule ^(.*)$ routes.php [QSA,L]
+
+# # Redirect users to /views/index.php
+# RewriteRule ^$              /views/index.php [L]
+# RewriteRule ^proxy$         /views/proxy.php [NC,L]
+# RewriteRule ^test$          /views/test.php [NC,L]
+
+# ErrorDocument 404           /views/404.php
