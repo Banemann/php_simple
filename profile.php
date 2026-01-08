@@ -13,10 +13,19 @@ if (!$user) {
 
 require_once __DIR__ . '/_/_header.php';
 
+// Success / error messages
 $message = $_GET['message'] ?? '';
-if($message):
+$error = $_GET['error'] ?? '';
+if ($message || $error):
 ?>
-    <h1><?php echo htmlspecialchars($message) ?></h1>
+    <div id="toast">
+        <?php if ($message): ?>
+            <div class="toast-ok"><?php echo htmlspecialchars($message) ?></div>
+        <?php endif; ?>
+        <?php if ($error): ?>
+            <div class="toast-error"><?php echo htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+    </div>
 <?php endif; ?>
 
 
