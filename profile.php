@@ -20,10 +20,10 @@ if ($message || $error):
 ?>
     <div id="toast">
         <?php if ($message): ?>
-            <div class="toast-ok"><?php echo htmlspecialchars($message) ?></div>
+            <div class="toast-ok"><?php _($message) ?></div>
         <?php endif; ?>
         <?php if ($error): ?>
-            <div class="toast-error"><?php echo htmlspecialchars($error) ?></div>
+            <div class="toast-error"><?php _($error) ?></div>
         <?php endif; ?>
     </div>
 <?php endif; ?>

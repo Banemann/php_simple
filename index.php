@@ -26,7 +26,7 @@ if($message):
 ?>
     <div id="toast">
         <div class="toast-ok">
-            <?php echo htmlspecialchars($message) ?>
+            <?php _($message) ?>
         </div>
     </div>
 <?php endif; ?>

@@ -25,7 +25,7 @@ try{
     unset($user["user_password"]);
     session_start();
     $_SESSION["user"] = $user;
-    header("Location: /home");
+    header("Location: /");
 }
 
 catch(Exception $e){
