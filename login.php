@@ -20,10 +20,10 @@ if ($message || $error):
 
     <h1>Login</h1>
 
-    <input name="user_email" type="email" value="" placeholder="email" value="a@a.com">
-    <input name="user_password" type="password" value="" placeholder="password" value="password">
+    <input name="user_email" type="email" placeholder="Email" value="a@a.com" required>
+    <input name="user_password" type="password" placeholder="Password" value="password" required>
 
-    <button>
+    <button type="submit">
         Login
     </button>
 

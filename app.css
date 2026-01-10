@@ -488,6 +488,107 @@ main {
     background: #e0e0e0;
 }
 
+/* LOGIN & SIGNUP PAGE */
+form {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+form h1 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+form input {
+    padding: 0.85rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+form input::placeholder {
+    color: #999;
+}
+
+form button {
+    padding: 0.95rem 1.5rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+form button:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* Toast notifications */
+#toast {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    max-width: 350px;
+}
+
+.toast-ok,
+.toast-error {
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease;
+}
+
+.toast-ok {
+    background: #27ae60;
+    color: white;
+}
+
+.toast-error {
+    background: #e74c3c;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 @media (max-width: 640px) {
     .create-post-page {
         margin: 1rem auto;

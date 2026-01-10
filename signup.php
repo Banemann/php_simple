@@ -16,17 +16,16 @@ if ($message || $error):
     </div>
 <?php endif; ?>
 
-?>
 
-<form action="api/api-create-profile" method="POST" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+<form action="api/api-create-profile" method="POST">
     <h1>Signup</h1>
 
-    <input name="user_full_name" type="text" placeholder="fullname">Full Name</input>
-    <input name="user_username" type="text" placeholder="username">Username</input>
-    <input name="user_email" type="text" placeholder="email">Email</input>
-    <input name="user_password" type="password" placeholder="password">Password</input>
+    <input name="user_full_name" type="text" placeholder="Full Name" required>
+    <input name="user_username" type="text" placeholder="Username" required>
+    <input name="user_email" type="email" placeholder="Email" required>
+    <input name="user_password" type="password" placeholder="Password" required>
     
-    <button>Signup</button>
+    <button type="submit">Signup</button>
 </form>
 
 
