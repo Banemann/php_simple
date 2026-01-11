@@ -39,7 +39,7 @@
         <div class="post-controls post-controls-<?php echo $post['post_pk']; ?>">
             <form action="/api/api-delete-post" method="POST">
                 <input type="hidden" name="post_pk" value="<?php echo $post['post_pk']; ?>">
-                <button type="submit">Delete</button>
+                <button type="submit" class="post-delete-btn">Delete</button>
             </form>
 
             <button type="button" class="post-edit-btn" onclick="show_elements('.post-edit-form-<?php echo $post['post_pk']; ?>'); hide_elements('.post-msg-<?php echo $post['post_pk']; ?>, .post-controls-<?php echo $post['post_pk']; ?>');">Edit</button>

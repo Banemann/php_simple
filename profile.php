@@ -64,9 +64,6 @@ if ($message || $error):
         </button>
     </form>
 
-    <div class="profile-actions">
-        <a class="logout-link" href="/logout">Logout</a>
-    </div>
 </div>
 
 <?php require_once __DIR__ . '/_/_footer.php'; ?>

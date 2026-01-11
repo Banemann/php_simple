@@ -578,7 +578,7 @@ form button:active {
     gap: 0;
 }
 
-.post form button {
+.post form button.post-delete-btn {
     background-color: #e74c3c !important;
     padding: 0.5rem 1rem;
     font-size: 0.95rem;
