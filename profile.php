@@ -2,8 +2,6 @@
 session_start();
 require_once __DIR__ . '/private/x.php';
 
-// Use null-coalescing to avoid "Undefined array key" warnings when session key
-// doesn't exist.
 $user = $_SESSION['user'] ?? null;
 
 if (!$user) {
