@@ -11,6 +11,30 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC // ['nickname']
         // PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ // ->nickname
         // PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_NUM // [[2],[],[]]
+
+// Associative array example
+//  $user = [
+//   "user_pk" => "1",
+//   "user_username" => "casper",
+//   "user_email" => "a@a.com",
+//   "profile" => [
+//     "full_name" => "Casper Banemann",
+//     "created_at" => "2026-01-08"
+//   ],
+
+//   "posts" => [
+//     [
+//       "post_pk" => "p1",
+//       "post_message" => "Hello world",
+//       "post_created_at" => "2026-01-08 20:15:00"
+//     ]
+//   ]
+// ];
+
+// Accessing values
+// echo $user["profile"]["full_name"];
+// echo $user["user_username"];
+
     ];
     $_db = new PDO(
         $dbConnection,
