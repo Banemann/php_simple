@@ -11,20 +11,12 @@ try {
         exit;
     }
 
-    if (!isset($_POST["user_pk"])) {
-        http_response_code(400);
-        header("Location: /?message=Error: Missing user id");
-        exit;
-    }
-
     $user_id = $_SESSION["user"]["user_pk"];
-    $profile_user_id = $_POST["user_pk"];
 
-    $sql = "DELETE FROM users WHERE user_pk = :user_pk AND user_pk = :profile_user_pk";
+    $sql = "DELETE FROM users WHERE user_pk = :user_pk";
     
     $stmt = $_db->prepare($sql);
     $stmt->bindValue(":user_pk", $user_id);
-    $stmt->bindValue(":profile_user_pk", $profile_user_id);
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
