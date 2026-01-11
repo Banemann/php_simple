@@ -64,6 +64,11 @@ if ($message || $error):
         </button>
     </form>
 
+    <form action="/api/api-delete-profile.php" method="POST">
+                <input type="hidden" name="user_pk" value="<?php echo $user['user_pk']; ?>">
+                <button type="submit" class="post-delete-btn">Delete Profile</button>
+    </form>
+
 </div>
 
 <?php require_once __DIR__ . '/_/_footer.php'; ?>
