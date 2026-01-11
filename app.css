@@ -581,46 +581,6 @@ form button:active {
     transform: translateY(0);
 }
 
-/* Toast notifications */
-#toast {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 1000;
-    max-width: 350px;
-}
-
-.toast-ok,
-.toast-error {
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    animation: slideIn 0.3s ease;
-}
-
-.toast-ok {
-    background: #27ae60;
-    color: white;
-}
-
-.toast-error {
-    background: #e74c3c;
-    color: white;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(400px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 @media (max-width: 640px) {
     .create-post-page {
         margin: 1rem auto;
