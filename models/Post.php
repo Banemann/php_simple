@@ -35,3 +35,8 @@ class Post
         $stmt->execute();
     }
 }
+
+
+
+// $postModel = new Post($_db);
+// $postModel->db->query("..."); // Error: Cannot access private property
