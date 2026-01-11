@@ -29,10 +29,10 @@ try {
 
     if ($stmt->rowCount() > 0) {
         http_response_code(200);
-        header("Location: /?message=Post deleted successfully");
+        header("Location: /?message=" . urlencode("Post deleted successfully"));
     } else {
         http_response_code(403);
-        header("Location: /?message=Failed to delete post");
+        header("Location: /?message=" . urlencode("Failed to delete post"));
     }
     exit;
 
