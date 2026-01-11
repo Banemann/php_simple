@@ -214,50 +214,37 @@ main {
 }
 
 .post button {
-    background-color: #e74c3c;
-    color: white;
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
-.post button:hover {
-    background-color: #c0392b;
+.post button[type="submit"] {
+    background-color: #667eea;
+    color: white;
+}
+
+.post button[type="submit"]:hover {
+    background-color: #5568d3;
     transform: translateY(-2px);
 }
 
-.post .post-edit-btn {
-    background-color: #e8e8e8 !important;
-    color: #333 !important;
-    border: 1px solid #999 !important;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.post .post-edit-btn:hover {
-    background-color: #d8d8d8 !important;
-    transform: translateY(-2px);
-}
-
+.post .post-edit-btn,
 .post .post-cancel-btn {
-    background-color: #f0f0f0 !important;
-    color: #333 !important;
-    border: 1px solid #999 !important;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #e8e8e8;
+    color: #333;
+    border: 1px solid #ccc;
     font-weight: 500;
-    transition: all 0.2s ease;
+    margin: 0 0.25rem;
 }
 
+.post .post-edit-btn:hover,
 .post .post-cancel-btn:hover {
-    background-color: #e0e0e0 !important;
+    background-color: #d8d8d8;
     transform: translateY(-2px);
 }
 
@@ -581,6 +568,27 @@ form button:active {
     transform: translateY(0);
 }
 
+/* Remove form styling from post delete/edit forms */
+.post form {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    gap: 0;
+}
+
+.post form button {
+    background-color: #e74c3c !important;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+}
+
+.post form button:hover {
+    background-color: #c0392b;
+    box-shadow: none;
+}
+
 @media (max-width: 640px) {
     .create-post-page {
         margin: 1rem auto;
@@ -598,4 +606,41 @@ form button:active {
     .form-actions {
         flex-direction: column;
     }
+}
+
+/* Post edit form styles */
+.post-edit-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+.post-edit-form .edit-buttons {
+    margin-top: 0.5rem;
+}
+
+.post-edit-form button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.post-edit-form button[type="submit"]:hover {
+    background: #5568d3;
+}
+
+.post-edit-form .post-cancel-btn {
+    margin-left: 0.5rem;
+}
+
+.post-controls {
+    margin-top: 0.75rem;
 }
