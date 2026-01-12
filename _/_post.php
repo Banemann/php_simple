@@ -1,9 +1,5 @@
 <?php
-/**
- * Post Component
- * Displays a single post
- * Expects $post and $current_user_id variables to be set
- */
+
 ?>
 <article class="post">
     <strong><?php echo _($post['user_username']); ?></strong>
@@ -12,9 +8,9 @@
         <p class="post-message post-msg-<?php echo $post['post_pk']; ?>"><?php echo _($post['post_message']); ?></p>
 
         <?php if ($current_user_id == $post['post_user_fk']): ?>
-            <form class="post-edit-form post-edit-form-<?php echo $post['post_pk']; ?> mix-hidden" action="/api/api-update-post" method="POST">
-                <textarea name="post_message" rows="3"><?php echo htmlspecialchars($post['post_message'], ENT_QUOTES, 'UTF-8'); ?></textarea>
-                <input type="hidden" name="post_pk" value="<?php echo $post['post_pk']; ?>">
+            <form class="post-edit-form post-edit-form-<?php echo _($post['post_pk']); ?> mix-hidden" action="/api/api-update-post" method="POST">
+                <textarea name="post_message" rows="3"><?php echo _($post['post_message']); ?></textarea>
+                <input type="hidden" name="post_pk" value="<?php echo _($post['post_pk']); ?>">
                 <div class="edit-buttons">
                     <button type="submit">Save</button>
                     <button type="button" class="post-cancel-btn" onclick="hide_elements('.post-edit-form-<?php echo $post['post_pk']; ?>'); show_elements('.post-msg-<?php echo $post['post_pk']; ?>, .post-controls-<?php echo $post['post_pk']; ?>');">Cancel</button>
@@ -36,9 +32,9 @@
 
 
     <?php if ($current_user_id == $post['post_user_fk']): ?>
-        <div class="post-controls post-controls-<?php echo $post['post_pk']; ?>">
+        <div class="post-controls post-controls-<?php echo _($post['post_pk']); ?>">
             <form action="/api/api-delete-post" method="POST">
-                <input type="hidden" name="post_pk" value="<?php echo $post['post_pk']; ?>">
+                <input type="hidden" name="post_pk" value="<?php echo _($post['post_pk']); ?>">
                 <button type="submit" class="post-delete-btn">Delete</button>
             </form>
 

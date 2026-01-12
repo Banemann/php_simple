@@ -11,7 +11,6 @@ class Post
 
     /**
      * Fetch all posts joined with usernames, ordered by newest first.
-     * Returns an array of associative rows.
      */
     public function all(): array
     {
