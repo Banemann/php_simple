@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/private/x.php';
+require_once __DIR__ . '/../private/x.php';
 
 $user = $_SESSION['user'] ?? null;
 
@@ -9,7 +9,7 @@ if (!$user) {
     exit;
 }
 
-require_once __DIR__ . '/_/_header.php';
+require_once __DIR__ . '/../_/_header.php';
 
 // Success / error messages
 $message = $_GET['message'] ?? '';
@@ -69,4 +69,4 @@ if ($message || $error):
 
 </div>
 
-<?php require_once __DIR__ . '/_/_footer.php'; ?>
+<?php require_once __DIR__ . '/../_/_footer.php'; ?>

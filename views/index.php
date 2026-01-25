@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once __DIR__."/_/_header.php";
-require_once __DIR__."/private/x.php";
+require_once __DIR__ . '/../_/_header.php';
+require_once __DIR__ . '/../private/x.php';
 
-require_once __DIR__ . "/private/db.php";
-require_once __DIR__ . "/controllers/PostController.php";
+require_once __DIR__ . '/../private/db.php';
+require_once __DIR__ . '/../controllers/PostController.php';
 
 $current_user_id = $_SESSION['user']['user_pk'] ?? null;
 
@@ -58,7 +58,7 @@ $error = $_GET['error'] ?? '';
                 <p>No posts found.</p>
             <?php else: ?>
                 <?php foreach ($posts as $post): ?>
-                    <?php require __DIR__ . "/_/_post.php"; ?>
+                    <?php require __DIR__ . '/../_/_post.php'; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
@@ -77,5 +77,5 @@ $error = $_GET['error'] ?? '';
 </main>
 
 <?php
-require_once __DIR__."/_/_footer.php";
+require_once __DIR__ . '/../_/_footer.php';
 ?>

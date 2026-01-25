@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/private/x.php";
-require_once __DIR__ . "/_/_header.php";
+require_once __DIR__ . '/../private/x.php';
+require_once __DIR__ . '/../_/_header.php';
 
 $message = $_GET['message'] ?? '';
 $error = $_GET['error'] ?? '';
@@ -30,4 +30,4 @@ if ($message || $error):
 
 
 
-<?php require_once __DIR__."/_/_footer.php"; ?>
+<?php require_once __DIR__ . '/../_/_footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 // Start session and load helpers before output so we can redirect if unauthenticated
 session_start();
-require_once __DIR__ . '/private/x.php';
+require_once __DIR__ . '/../private/x.php';
 
 $user = $_SESSION['user'] ?? null;
 if (!$user) {
@@ -10,7 +10,7 @@ if (!$user) {
 }
 
 // Only include the HTML header after authentication check to avoid "headers already sent" issues
-require_once __DIR__ . "/_/_header.php";
+require_once __DIR__ . '/../_/_header.php';
 ?>
 
 <main class="create-post-page">
@@ -37,4 +37,4 @@ require_once __DIR__ . "/_/_header.php";
     </form>
 </main>
 
-<?php require_once __DIR__."/_/_footer.php"; ?>
+<?php require_once __DIR__ . '/../_/_footer.php'; ?>
