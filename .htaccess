@@ -8,6 +8,13 @@ RewriteRule ^profile$       /views/profile.php [L]
 RewriteRule ^signup$        /views/signup.php [L]
 RewriteRule ^create-post$   /views/create-post.php [L]
 
+# Items friendly URL: /items/{gender}/{id}
+# - gender: male|female
+# - id: numeric item id
+RewriteRule ^items/(male|female)/(\d+)$ /views/item.php?gender=$1&id=$2 [L]
+
+
+
 
 
 
